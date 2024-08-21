@@ -1,6 +1,5 @@
-import React from 'react'
-
 const Home = () => {
+    //aca voy a tener todo
   return (
     <div>Home</div>
   )
