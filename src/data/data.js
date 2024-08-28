@@ -1,4 +1,4 @@
-export const movies = [
+export const allMovies = [
     {
         title: "Inception",
         director: "Christopher Nolan",
@@ -28,7 +28,7 @@ export const movies = [
         duration: 175,
         genre: "Crime",
         synopsis: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-        poster: "https://example.com/the-godfather.jpg",
+        poster: "https://i.pinimg.com/564x/11/99/dc/1199dc6273680f175fd9b06c9c36d08a.jpg",
         available: true,
         watchOn: "paramount",
     },

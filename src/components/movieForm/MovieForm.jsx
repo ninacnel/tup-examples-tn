@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import PropTypes from "prop-types";
 
-const MovieForm = () => {
+
+const MovieForm = ({onAddNewMovie}) => {
     const [title, setTitle] = useState('');
     const [director, setDirector] = useState('');
     const [cast, setCast] = useState('');
@@ -14,10 +16,10 @@ const MovieForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const movie = {
+        const movieItem = {
             title,
             director,
-            cast: cast.split(',').map(name => name.trim()), // Convert cast to an array
+            cast: cast.split(',').map(name => name.trim()),
             duration: parseInt(duration, 10),
             genre,
             synopsis,
@@ -25,8 +27,18 @@ const MovieForm = () => {
             available,
             watchOn,
         };
-        console.log('Movie created:', movie);
-        // Add your submit logic here (e.g., send the movie data to an API)
+        onAddNewMovie(movieItem);
+
+        // Clean the form
+        setTitle('');
+        setDirector('');
+        setCast('');
+        setDuration('');
+        setGenre('');
+        setSynopsis('');
+        setPoster('');
+        setAvailable(true);
+        setWatchOn('');
     };
 
     return (
@@ -37,7 +49,7 @@ const MovieForm = () => {
                     type="text" 
                     placeholder="Enter movie title" 
                     value={title} 
-                    onChange={(e) => setTitle(e.target.value)} 
+                    onChange={(e)=>setTitle(e.target.value)} 
                 />
             </Form.Group>
 
@@ -128,5 +140,10 @@ const MovieForm = () => {
         </Form>
     );
 };
+
+MovieForm.propTypes = {
+    onAddNewMovie: PropTypes.func,
+  };
+  
 
 export default MovieForm
