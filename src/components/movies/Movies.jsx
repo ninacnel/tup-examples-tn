@@ -14,6 +14,7 @@ const Movies = () => {
 
   const addMovieHandler = (newMovie) => {
     setMovies((movies) => [...movies, newMovie]);
+    setShowForm((prevValue) => !prevValue);
   };
 
   return (

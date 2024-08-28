@@ -42,7 +42,7 @@ const MovieForm = ({onAddNewMovie}) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit}className="m-3 p-2 bg-info rounded">
+        <Form onSubmit={handleSubmit} className="m-3 p-2 bg-info rounded">
             <Form.Group controlId="formTitle">
                 <Form.Label>Title</Form.Label>
                 <Form.Control 
