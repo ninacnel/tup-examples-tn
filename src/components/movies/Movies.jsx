@@ -73,6 +73,7 @@ const Movies = () => {
                   genre={movie.genre}
                   synopsis={movie.synopsis}
                   poster={movie.poster}
+                  available={movie.available}
                   watchOn={movie.watchOn}
                 />
               </Col>

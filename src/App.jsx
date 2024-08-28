@@ -3,13 +3,13 @@ import Layout from "./components/layout/Layout"
 
 
 function App() {
- // props
+  // props
 
   return (
     <>
-    <Layout>
-   <Home/>
-    </Layout>
+      <Layout>
+        <Home />
+      </Layout>
     </>
   )
 }
