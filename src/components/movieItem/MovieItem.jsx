@@ -49,6 +49,7 @@ MovieItem.propTypes = {
     genre: PropTypes.string.isRequired,
     synopsis: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
+    available : PropTypes.bool.isRequired,
     watchOn: PropTypes.string.isRequired,
 };
 
