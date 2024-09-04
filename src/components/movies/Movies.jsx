@@ -19,10 +19,6 @@ const Movies = () => {
 
   return (
     <Container>
-      <Button onClick={showFormHandler}>Create new movie</Button>
-      {showForm && (
-        <MovieForm onAddNewMovie={addMovieHandler} />
-      )}
       <Row className="justify-content-center">
         {movies.map((movie, index) => (
           <Col xs={12} sm={6} md={4} lg={3} key={index} className="mb-4">
@@ -40,6 +36,10 @@ const Movies = () => {
           </Col>
         ))}
       </Row>
+        <Button onClick={showFormHandler}>Create new movie</Button>
+        {showForm && (
+          <MovieForm onAddNewMovie={addMovieHandler} />
+        )}
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 
 const Footer = () => {
     return (
-      <div className="fixed-bottom bg-light text-center p-3">
+      <div className="sticky bg-light text-center p-3">
         Footer
       </div>
     );
