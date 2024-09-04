@@ -1,37 +1,35 @@
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import MovieItem from "../movieItem/MovieItem";
 import { allMovies } from "../../data/data";
 import { useState } from "react";
 import MovieForm from "../movieForm/MovieForm";
+import MovieFilter from "../movieFilter/MovieFilter";
 
 const Movies = () => {
   const [movies, setMovies] = useState(allMovies);
+  const [filteredMovies, setFilteredMovies] = useState(allMovies);
   const [showForm, setShowForm] = useState(false);
-  const [filterText, setFilterText] = useState("");
 
   const showFormHandler = () => {
     setShowForm((prevValue) => !prevValue);
   };
 
   const addMovieHandler = (newMovie) => {
-    setMovies((movies) => [...movies, newMovie]);
-    setShowForm((prevValue) => !prevValue);
+    const updatedMovies = [...movies, newMovie];
+    setMovies(updatedMovies);
+    setFilteredMovies(updatedMovies);
+    setShowForm(false);
   };
 
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(filterText.toLowerCase())
-  );
+  const handleFilter = (filteredMovies) => {
+    setFilteredMovies(filteredMovies);
+  };
 
   return (
     <Container>
       <Row className="mb-4 mt-2">
         <Col xs={12}>
-          <Form.Control
-            type="text"
-            placeholder="Search by movie title"
-            value={filterText}
-            onChange={(e) => setFilterText(e.target.value)}
-          />
+          <MovieFilter movies={movies} onFilter={handleFilter} />
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -52,9 +50,7 @@ const Movies = () => {
         ))}
       </Row>
       <Button onClick={showFormHandler}>Create new movie</Button>
-      {showForm && (
-        <MovieForm onAddNewMovie={addMovieHandler} />
-      )}
+      {showForm && <MovieForm onAddNewMovie={addMovieHandler} />}
     </Container>
   );
 };
